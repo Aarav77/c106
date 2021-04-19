@@ -7,6 +7,8 @@ def getDataSource(DataPath):
     Days = []
     with open (DataPath) as csv_file:
         df = csv.DictReader(csv_file)
+        fig = px.scatter(df,x = "Marks In Percentage",y = "Days Present", color="week")
+        fig.show()
         for row in df:
             Marks.append(float(row["Marks In Percentage"]))
             Days.append(float(row["Days Present"]))        
